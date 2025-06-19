@@ -1,0 +1,24 @@
+{
+  "recommendations": [
+    "bradlc.vscode-tailwindcss",
+    "docker.docker",
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode",
+    "github.vscode-pull-request-github",
+    "gitlab.gitlab-workflow",
+    "vivaxy.vscode-conventional-commits",
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "vscode-icons-team.vscode-icons",
+    "ms-vscode-remote.remote-wsl",
+    "ms-azuretools.vscode-docker",
+    "ms-vscode-remote.remote-ssh",
+    "ms-azuretools.vscode-containers",
+    "ms-vscode-remote.remote-ssh-edit",
+    "ms-vscode-remote.remote-containers",
+    "ms-vscode.remote-explorer",
+    "ms-vscode-remote.vscode-remote-extensionpack",
+    "ms-vscode.powershell",
+    "ms-vscode.remote-server"
+  ]
+}

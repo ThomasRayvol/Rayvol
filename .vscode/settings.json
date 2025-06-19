@@ -1,0 +1,37 @@
+{
+  "git.enabled": true,
+  "editor.fontFamily": "JetBrainsMono Nerd Font, Consolas, 'Courier New', monospace",
+  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+  "explorer.confirmDelete": false,
+  "editor.minimap.enabled": false,
+  "editor.renderWhitespace": "all",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "workbench.startupEditor": "none",
+  "window.autoDetectColorScheme": true,
+  "workbench.preferredLightColorTheme": "Default Light+",
+  "workbench.preferredDarkColorTheme": "Default Dark+",
+  "workbench.iconTheme": "vscode-icons",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "remote.SSH.remotePlatform": {
+    "192.168.1.163": "linux",
+    "192.168.1.162": "linux",
+    "10.1.1.102": "linux",
+    "bind9": "linux",
+    "traefik": "linux",
+    "10.1.70.2": "linux",
+    "10.1.50.7": "linux",
+    "gitlab": "linux",
+    "Authentication": "linux",
+    "Pomerium": "linux",
+    "Authentik": "linux",
+    "Homepage": "linux",
+    "Homepages": "linux",
+    "Mealie": "linux"
+  },
+  "docker.commands.attach": "${containerCommand} exec -it ${containerId} ${shellCommand}",
+  "containers.commands.attach": "${containerCommand} exec -it ${containerId} ${shellCommand}"
+}

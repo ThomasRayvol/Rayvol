@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>CSV → ICS (Plan Lyme)</title>
+</head>
+<body>
+  <h1>Convertisseur CSV → ICS</h1>
+  <input type="file" id="csvFile" accept=".csv" />
+  <button onclick="convert()">Convertir et télécharger .ics</button>
+
+  <script>
+function convertDateToICSFormat(dateStr) {
+  const d = new Date(dateStr);
+  if (isNaN(d.getTime())) return null; // renvoie null si la date est invalide
+  return d.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+}
+
+function convert() {
+  const fileInput = document.getElementById('csvFile');
+  if (!fileInput.files.length) return alert("Sélectionne ton fichier CSV !");
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const lines = e.target.result.split('\n');
+    const events = [];
+
+    for (let i = 1; i < lines.length; i++) {
+  const line = lines[i].trim();
+  if (!line) continue;
+
+  const cols = line.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/).map(s => s.replace(/^"|"$/g, '').trim());
+
+  const date = cols[0];
+  const title = cols[1] || "Événement sans titre";
+  const description = cols[2] || "";
+
+  const startDate = convertDateToICSFormat(date);
+  if (!startDate) {
+    console.warn(`Date invalide à la ligne ${i + 1} :`, date);
+    continue;
+  }
+
+  const event = `
+BEGIN:VEVENT
+DTSTAMP:${startDate}
+DTSTART;VALUE=DATE:${startDate.substring(0, 8)}
+SUMMARY:${title}
+DESCRIPTION:${description.replace(/\n/g, '\\n')}
+END:VEVENT`;
+  events.push(event);
+}
+
+    const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ChatGPT Lyme Planner//EN
+CALSCALE:GREGORIAN
+${events.join('\n')}
+END:VCALENDAR`;
+
+    const blob = new Blob([icsContent], { type: 'text/calendar' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'plan_lyme_cetose.ics';
+    a.click();
+  };
+
+  reader.readAsText(fileInput.files[0]);
+}
+
+  </script>
+</body>
+</html>
