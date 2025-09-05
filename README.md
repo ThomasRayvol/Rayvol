@@ -10,28 +10,38 @@ Ce projet est un CV statique HTML/CSS avec système d'export automatisé permett
 
 ```
 .
-├── CV.html              # CV principal (HTML)
-├── style.css            # Styles CSS avec media queries print
-├── img/
-│   └── photo.jpg        # Photo de profil
-├── fonts/
-│   ├── segoeui.ttf      # Segoe UI Regular
-│   ├── segoeuib.ttf     # Segoe UI Bold
-│   ├── segoeuii.ttf     # Segoe UI Italic
-│   └── segoeuil.ttf     # Segoe UI Light
+├── sources/
+│   ├── index.html       # CV principal (HTML) - fichier principal pour Cloudflare Pages
+│   ├── style.css        # Styles CSS avec media queries print
+│   ├── img/
+│   │   └── photo.jpg    # Photo de profil
+│   └── fonts/
+│       ├── segoeui.ttf  # Segoe UI Regular
+│       ├── segoeuib.ttf # Segoe UI Bold
+│       ├── segoeuii.ttf # Segoe UI Italic
+│       ├── segoeuil.ttf # Segoe UI Light
+│       ├── segoeuisl.ttf# Segoe UI Semilight
+│       └── segoeuiz.ttf # Segoe UI Black
 ├── scripts/
 │   └── export.sh        # Script d'export multi-format
-├── convertisseur.html   # Utilitaire CSV → ICS
+├── output/              # Répertoire de sortie pour les exports
+├── CLAUDE.md            # Instructions pour Claude Code
 └── README.md            # Cette documentation
 ```
 
 ## 🚀 Utilisation
 
 ### Visualiser le CV
-Ouvrir `CV.html` dans un navigateur ou servir avec un serveur HTTP :
+
+#### En ligne (Cloudflare Pages)
+Le CV est déployé automatiquement sur Cloudflare Pages : [rayvol.pages.dev](https://rayvol.pages.dev)
+
+#### Localement
+Ouvrir `sources/index.html` dans un navigateur ou servir avec un serveur HTTP :
 ```bash
+cd sources/
 python3 -m http.server 8000
-# Puis visiter http://localhost:8000/CV.html
+# Puis visiter http://localhost:8000
 ```
 
 ### Exporter en PDF, Markdown et Word
@@ -40,7 +50,7 @@ cd scripts/
 ./export.sh
 ```
 
-Les fichiers générés apparaîtront à la racine :
+Les fichiers générés apparaîtront dans le répertoire `output/` :
 - `cv.pdf` - PDF haute qualité avec polices intégrées
 - `cv.md` - Version Markdown
 - `cv.docx` - Document Word
@@ -105,11 +115,17 @@ Le script `scripts/export.sh` utilise ces paramètres wkhtmltopdf :
 - Gestion spécifique de la barre verticale en print
 
 ### Workflow recommandé
-1. Modifier le contenu dans `CV.html`
-2. Ajuster les styles dans `style.css` si nécessaire
-3. Tester le rendu dans le navigateur
+1. Modifier le contenu dans `sources/index.html`
+2. Ajuster les styles dans `sources/style.css` si nécessaire
+3. Tester le rendu localement ou via le déploiement Cloudflare Pages
 4. Exporter avec `scripts/export.sh`
-5. Vérifier la qualité du PDF généré
+5. Vérifier la qualité du PDF généré dans `output/`
+
+### Déploiement Cloudflare Pages
+Le projet est configuré pour se déployer automatiquement sur Cloudflare Pages :
+- **Build output directory:** `sources`
+- **Root directory:** `/`
+- **Déploiement automatique** depuis GitLab lors des commits sur `main`
 
 ## 📋 Notes techniques
 
@@ -117,8 +133,12 @@ Le script `scripts/export.sh` utilise ces paramètres wkhtmltopdf :
 - CSS optimisé pour le rendu wkhtmltopdf (pas toujours identique aux navigateurs)
 - La barre verticale utilise `position: absolute` en print mode pour la compatibilité PDF multi-pages
 - Les émojis dans les titres sont supportés grâce aux polices Segoe UI
+- **Structure déploiement** : tous les assets (images, fonts) sont organisés dans `sources/` avec des chemins relatifs
+- **Cloudflare Pages** : déploiement automatique depuis GitLab avec configuration `sources` comme répertoire de build
 
 ## 🏷️ Version
 
-Dernière mise à jour : Janvier 2025
-Compatible avec wkhtmltopdf 0.12.6.1 (with patched qt)
+Dernière mise à jour : Septembre 2025
+- Compatible avec wkhtmltopdf 0.12.6.1 (with patched qt)
+- Déployé sur Cloudflare Pages avec intégration GitLab
+- Structure optimisée pour les déploiements statiques
