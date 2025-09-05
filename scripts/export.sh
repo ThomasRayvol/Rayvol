@@ -1,15 +1,18 @@
 #!/bin/bash
 
+# Aller au répertoire parent (racine du projet)
+cd "$(dirname "$0")/.."
+
 # Fichier source HTML
-INPUT="cv.html"
+INPUT="./sources/CV.html"
 
 # Fichiers de sortie
-PDF_OUT="cv.pdf"
-MD_OUT="cv.md"
-DOCX_OUT="cv.docx"
+PDF_OUT="./outputs/CV.pdf"
+MD_OUT="./outputs/CV.md"
+DOCX_OUT="./outputs/CV.docx"
 
 # Fichier CSS optionnel
-CSS_FILE="style.css"
+CSS_FILE="./sources/style.css"
 
 echo "📝 Export du CV depuis $INPUT"
 
@@ -23,11 +26,19 @@ pandoc "$INPUT" -o "$DOCX_OUT"
 
 # PDF
 echo "📕 Génération PDF..."
-if [ -f "$CSS_FILE" ]; then
-  pandoc "$INPUT" -o "$PDF_OUT" --pdf-engine=wkhtmltopdf --css="$CSS_FILE"
-else
-  pandoc "$INPUT" -o "$PDF_OUT" --pdf-engine=wkhtmltopdf
-fi
+
+wkhtmltopdf \
+    --enable-local-file-access \
+    --print-media-type \
+    --encoding utf-8 \
+    --margin-top 0 \
+    --margin-bottom 0 \
+    --margin-left 0 \
+    --margin-right 0 \
+    --outline \
+    --outline-depth 4 \
+    "$INPUT" "$PDF_OUT"
+
 
 echo "✅ Export terminé ! Fichiers générés :"
 echo " - $PDF_OUT"

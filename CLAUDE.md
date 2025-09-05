@@ -11,8 +11,8 @@ This is a personal CV project for Thomas Richard (Rayvol) - a portfolio website 
 The project is organized as a simple static website with the following key components:
 
 - **Main CV**: `CV.html` - The primary HTML resume with French content, styled with `style.css`
-- **Export System**: `scripts/export.sh` - Bash script using Pandoc to convert HTML to PDF, Markdown, and DOCX formats
-- **Assets**: `img/` directory containing profile photo
+- **Export System**: `scripts/export.sh` - Bash script using wkhtmltopdf to convert HTML to PDF, Markdown, and DOCX formats
+- **Assets**: `img/` directory containing profile photo, `fonts/` directory containing Segoe UI font files
 - **Utility**: `convertisseur.html` - CSV to ICS converter tool (separate utility)
 
 The HTML structure uses semantic sections for different resume parts (intro, technical stack, experience, education, etc.) with CSS styling optimized for both web display and print/PDF generation.

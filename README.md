@@ -1,93 +1,124 @@
-# Rayvol
+# CV Thomas Richard (Rayvol)
 
+Portfolio website contenant le CV professionnel de Thomas Richard en multiple formats, optimisé pour l'export PDF haute qualité.
 
+## 🎯 Aperçu
 
-## Getting started
+Ce projet est un CV statique HTML/CSS avec système d'export automatisé permettant de générer des documents dans différents formats (PDF, Markdown, Word) tout en préservant le design et les polices.
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
-
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
-
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+## 📁 Structure du projet
 
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/ThomasRayvol/rayvol.git
-git branch -M main
-git push -uf origin main
+.
+├── CV.html              # CV principal (HTML)
+├── style.css            # Styles CSS avec media queries print
+├── img/
+│   └── photo.jpg        # Photo de profil
+├── fonts/
+│   ├── segoeui.ttf      # Segoe UI Regular
+│   ├── segoeuib.ttf     # Segoe UI Bold
+│   ├── segoeuii.ttf     # Segoe UI Italic
+│   └── segoeuil.ttf     # Segoe UI Light
+├── scripts/
+│   └── export.sh        # Script d'export multi-format
+├── convertisseur.html   # Utilitaire CSV → ICS
+└── README.md            # Cette documentation
 ```
 
-## Integrate with your tools
+## 🚀 Utilisation
 
-- [ ] [Set up project integrations](https://gitlab.com/ThomasRayvol/rayvol/-/settings/integrations)
+### Visualiser le CV
+Ouvrir `CV.html` dans un navigateur ou servir avec un serveur HTTP :
+```bash
+python3 -m http.server 8000
+# Puis visiter http://localhost:8000/CV.html
+```
 
-## Collaborate with your team
+### Exporter en PDF, Markdown et Word
+```bash
+cd scripts/
+./export.sh
+```
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
+Les fichiers générés apparaîtront à la racine :
+- `cv.pdf` - PDF haute qualité avec polices intégrées
+- `cv.md` - Version Markdown
+- `cv.docx` - Document Word
 
-## Test and Deploy
+## 🛠️ Dépendances
 
-Use the built-in continuous integration in GitLab.
+### Requises pour l'export
+- **wkhtmltopdf** (avec patches Qt) - pour la génération PDF
+- **pandoc** - pour les conversions Markdown et Word
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+### Installation des dépendances
 
-***
+#### wkhtmltopdf avec patches Qt
+```bash
+# Télécharger et installer la version officielle
+wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-2/wkhtmltox_0.12.6.1-2.jammy_amd64.deb
+sudo apt install xfonts-75dpi
+sudo dpkg -i wkhtmltox_0.12.6.1-2.jammy_amd64.deb
+```
 
-# Editing this README
+#### Pandoc
+```bash
+sudo apt install pandoc
+```
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+## 🎨 Fonctionnalités
 
-## Suggestions for a good README
+### Design
+- ✅ **Responsive** : S'adapte aux différentes tailles d'écran
+- ✅ **Print-optimized** : Media queries spécifiques pour l'impression
+- ✅ **Polices intégrées** : Segoe UI incluse dans le projet
+- ✅ **Barre latérale décorative** : Gradient vertical sur toutes les pages PDF
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+### Export PDF avancé
+- ✅ **Qualité professionnelle** : Rendu identique au navigateur
+- ✅ **Plan navigable** : Table des matières automatique basée sur les titres
+- ✅ **Polices préservées** : Segoe UI correctement intégrée
+- ✅ **Marges optimisées** : Pas d'espaces blancs indésirables
+- ✅ **Multi-pages** : Barre latérale continue sur toutes les pages
 
-## Name
-Choose a self-explaining name for your project.
+## ⚙️ Configuration
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+### Personnalisation des polices
+Les polices sont chargées via `@font-face` dans `style.css`. Pour utiliser d'autres polices :
+1. Ajouter les fichiers `.ttf` dans le dossier `fonts/`
+2. Déclarer les `@font-face` en début de `style.css`
+3. Mettre à jour la propriété `font-family` du body
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+### Options d'export
+Le script `scripts/export.sh` utilise ces paramètres wkhtmltopdf :
+- `--enable-local-file-access` : Accès aux polices et images locales
+- `--print-media-type` : Utilise les styles CSS print
+- `--outline` : Génère le plan PDF navigable
+- Marges à 0 pour un rendu edge-to-edge
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+## 🔧 Développement
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+### Structure CSS
+- Styles globaux avec polices intégrées
+- Media queries `@media print` pour l'export PDF
+- Classes utilitaires pour les colonnes et mise en page
+- Gestion spécifique de la barre verticale en print
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+### Workflow recommandé
+1. Modifier le contenu dans `CV.html`
+2. Ajuster les styles dans `style.css` si nécessaire
+3. Tester le rendu dans le navigateur
+4. Exporter avec `scripts/export.sh`
+5. Vérifier la qualité du PDF généré
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+## 📋 Notes techniques
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+- Le projet utilise HTML5 sémantique pour une structure claire
+- CSS optimisé pour le rendu wkhtmltopdf (pas toujours identique aux navigateurs)
+- La barre verticale utilise `position: absolute` en print mode pour la compatibilité PDF multi-pages
+- Les émojis dans les titres sont supportés grâce aux polices Segoe UI
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+## 🏷️ Version
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+Dernière mise à jour : Janvier 2025
+Compatible avec wkhtmltopdf 0.12.6.1 (with patched qt)
