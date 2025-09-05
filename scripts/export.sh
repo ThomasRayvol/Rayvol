@@ -4,7 +4,7 @@
 cd "$(dirname "$0")/.."
 
 # Fichier source HTML
-INPUT="./sources/CV.html"
+INPUT="./sources/index.html"
 
 # Fichiers de sortie
 PDF_OUT="./outputs/CV.pdf"
