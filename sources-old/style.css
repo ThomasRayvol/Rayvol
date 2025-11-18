@@ -1,0 +1,206 @@
+/* ----- Polices locales ----- */
+@font-face {
+  font-family: "Segoe UI";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/segoeui.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Segoe UI";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./fonts/segoeuib.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Segoe UI";
+  font-style: italic;
+  font-weight: 400;
+  src: url("./fonts/segoeuii.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Segoe UI";
+  font-style: normal;
+  font-weight: 300;
+  src: url("./fonts/segoeuil.ttf") format("truetype");
+}
+
+/* ----- Reset & Global ----- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  position: relative;
+}
+
+body {
+  height: auto;
+  min-height: 100%;
+  position: relative;
+  font-family: "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla",
+    "Apple Color Emoji", sans-serif;
+  font-size: 12pt;
+  color: #222;
+  line-height: 1.4;
+  margin: 0 auto;
+  padding: 2rem;
+  max-width: 21cm;
+  background: rgb(250, 248, 241);
+  page-break-inside: avoid;
+}
+
+.vertical-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 2.1cm;
+  height: 100vh;
+  background: linear-gradient(to bottom, #9bd5f7 10%, #96f085 90%);
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.page-break {
+  page-break-before: always;
+  break-before: page;
+}
+
+section {
+  padding-top: 1cm;
+  page-break-inside: avoid;
+}
+header {
+  padding-top: 1.5cm;
+  page-break-inside: avoid;
+}
+
+ul,
+li,
+p,
+h3,
+h4 {
+  page-break-inside: avoid;
+}
+
+p {
+  margin: 0.3em 0;
+}
+
+/* ----- Titres ----- */
+
+h1,
+h2,
+h3 {
+  color: #0c4a6e;
+  margin-top: 1.2em;
+  margin-bottom: 0.3em;
+}
+
+h1 {
+  font-size: 24pt;
+  margin-bottom: 0.1em;
+  border-bottom: 3px solid #0c4a6e;
+  padding-bottom: 0.2em;
+}
+
+h2 {
+  font-size: 14pt;
+  color: #1e293b;
+  margin-bottom: 1.5em;
+}
+
+h3 {
+  font-size: 13pt;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 3px;
+  margin-bottom: 0.5em;
+}
+
+/* ----- Listes ----- */
+
+ul {
+  padding-left: 1.2em;
+  margin: 0.4em 0;
+}
+
+ul li {
+  margin-bottom: 0.3em;
+}
+
+/* ----- Image de profil ----- */
+
+.profile-pic {
+  width: 170px;
+  float: right;
+  margin-left: 1em;
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+/* ----- Colonnes ----- */
+
+.two-columns,
+.three-columns {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  margin-top: 1em;
+}
+
+.two-columns > div {
+  display: table-cell;
+  vertical-align: top;
+  width: 50%;
+  padding-right: 1em;
+}
+
+.three-columns > div {
+  display: table-cell;
+  vertical-align: top;
+  width: 33.33%;
+  padding-right: 1em;
+}
+
+/* ----- Liens ----- */
+
+a {
+  color: #0c4a6e;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ----- Fix pour PDF: barre verticale sur toutes les pages ----- */
+@media print {
+  html {
+    position: relative !important;
+    height: auto !important;
+  }
+
+  body {
+    position: static !important;
+    margin: 0 auto !important;
+    max-width: 21cm !important;
+    padding: 0 !important;
+  }
+
+  .vertical-bar {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 2.1cm !important;
+    min-height: 1000mm !important;
+    background: linear-gradient(to bottom, #9bd5f7 10%, #96f085 90%) !important;
+    opacity: 0.3 !important;
+    z-index: -1 !important;
+  }
+}

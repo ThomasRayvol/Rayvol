@@ -1,0 +1,145 @@
+{
+  "header": {
+    "name": "Thomas Richard | Rayvol",
+    "title": "Développeur Fullstack & DevOps"
+  },
+  "intro": {
+    "description": "Développeur fullstack spécialisé dans la création de MVP et applications métier robustes. Fort d'un background scientifique, je transforme les idées business en solutions techniques scalables et performantes. Mon expertise couvre le cycle complet : de la conception à la production, en passant par l'architecture évolutive et l'automatisation des déploiements. 4 MVP livrés en production, dont des projets critiques (Airbus, Marine Nationale) et des SaaS en cours de croissance."
+  },
+  "achievements": {
+    "title": "🏆 Réalisations clés",
+    "items": [
+      "4 MVP déployés en production",
+      "Client SaaS fidèle depuis 2 ans",
+      "Applications critiques certifiées",
+      "Architecture scalable",
+      "Autonomie complète : de l'idée au déploiement automatisé"
+    ]
+  },
+  "stack": {
+    "title": "⚙️ Stack technique",
+    "development": "Node.js, Angular/React, .NET/C#, Express.js, TypeScript, SQL, MongoDB",
+    "automation": "GitLab CI/CD, Docker, Portainer, Bash, Ansible",
+    "infrastructure": "Proxmox, OPNsense, VLANs, DNS (Bind9), VPN, Traefik, Firewalling, DMZ, Zero Trust",
+    "auth": "Authentik",
+    "monitoring": "Grafana, Prometheus, Graylog"
+  },
+  "education": {
+    "title": "🎓 Formation",
+    "items": [
+      {
+        "year": "2018",
+        "degree": "Master 2 Physique Fondamentale",
+        "school": "Aix-Marseille Université"
+      },
+      {
+        "year": "2017",
+        "degree": "Master 1 Physique",
+        "school": "Aix-Marseille Université"
+      },
+      {
+        "year": "2013–2016",
+        "degree": "Licence Physique-Chimie",
+        "school": "Aix-Marseille Université"
+      }
+    ]
+  },
+  "softSkills": {
+    "title": "🧠 Soft skills",
+    "items": [
+      "Rigueur & autonomie",
+      "Capacité à vulgariser",
+      "Sens de l'architecture & anticipation des risques",
+      "Esprit d'initiative"
+    ]
+  },
+  "contact": {
+    "title": "🔗 Réseaux et contact",
+    "website": "rayvol.net",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "email": "thomas.richard@rayvol.net",
+    "phone": "+33 7 69 57 86 67"
+  },
+  "languages": {
+    "title": "🌍 Langues",
+    "items": [
+      "Français : Langue maternelle",
+      "Anglais : C1 (professionnel)",
+      "Espagnol : B1 (scolaire)"
+    ]
+  },
+  "interests": {
+    "title": "🎮 Centres d'intérêt",
+    "items": [
+      "Sciences & technologies",
+      "Jeux vidéo & jeux de plateau",
+      "Ski, randonnée, escalade",
+      "Projets open source"
+    ]
+  },
+  "experience": {
+    "title": "💼 Expériences Professionnelles",
+    "jobs": [
+      {
+        "period": "2022 – Aujourd'hui",
+        "company": "Freelance – Rayvol Développement (Strasbourg)",
+        "roles": [
+          "Solopreneur & Ingénieur - AiGenda",
+          "Solopreneur & Ingénieur - Infrahaste",
+          "Consultant Dev Fullstack – AFI-ESCA (Efor)",
+          "Consultant Dev Fullstack – EDF (TMC)"
+        ]
+      },
+      {
+        "period": "2019 – 2022",
+        "company": "Fullstack Developer – SII (Aix-en-Provence)",
+        "roles": [
+          "Flight Perfo – Airbus Helicopters",
+          "ZEPHYR – Marine Nationale (CEPA)",
+          "PTU – Airbus Helicopters"
+        ]
+      },
+      {
+        "period": "2018 – 2019",
+        "company": "Professeur de Physique-Chimie – Éducation nationale (Chalon-sur-Saône)",
+        "roles": []
+      }
+    ]
+  },
+  "projects": {
+    "aigenda": {
+      "title": "📆 AiGenda – Solopreneur & Développeur Fullstack",
+      "subtitle": "MVP SaaS - Agent IA de planification personnelle",
+      "description": "Développement complet d'un SaaS B2C : de l'idée initiale au produit en production. Application de gestion du temps avec agent IA, synchronisation d'agenda et priorisation automatique.",
+      "result": "Bêta privée active, backend sécurisé en production, croissance utilisateurs.",
+      "tech": {
+        "frontend": "Next.js (App Router), Tailwind CSS, TypeScript, i18n avec next-intl",
+        "app": "React Native, Expo, TypeScript, Tamagui",
+        "backend": "Supabase (PostgreSQL, Edge Functions, Auth), Stripe (paiement multi-devises)",
+        "infra": "Docker, Traefik (TLS via Cloudflare), Ansible (IaC), Supabase, monitoring Prometheus",
+        "cicd": "GitLab CI, releases automatiques, déploiement orchestré via Ansible"
+      },
+      "objective": "reprendre le contrôle de son temps grâce à une IA intuitive, respectueuse des données, sans dépendance à Big Tech.",
+      "status": "Bêta privée – Landing multilingue en ligne – Backend sécurisé en production"
+    },
+    "infrahaste": {
+      "title": "🔧 Infrahaste – DevOps & Développeur Fullstack",
+      "subtitle": "MVP Infrastructure-as-a-Service pour PME/Startups",
+      "description": "Développement d'une stack complète exportable : infrastructure sécurisée Zero Trust, monitoring avancé, CI/CD automatisé.",
+      "result": "Solution prête à déployer, 40+ jours de développement, en phase de production privée.",
+      "tech": [
+        "Proxmox : Hyperviseur avec réseaux VLAN",
+        "OPNsense : Firewall, NAT, DMZ, VPN (Zero Trust)",
+        "Traefik + Pomerium : Reverse Proxy + SSO sécurisé",
+        "Authentik : Authentification centralisée (OAuth2, MFA)",
+        "Bind9 : DNS interne",
+        "Grafana, Prometheus, Netdata, Graylog : Monitoring",
+        "GitLab + Runner, Terraform : CI/CD & IaC",
+        "Nextcloud, GLPI : Services internes"
+      ],
+      "objective": "fournir une stack exportable pour PME/startups, sans vendor lock-in, avec haute résilience.",
+      "status": "40+ jours / Phase de production privée"
+    }
+  }
+}
