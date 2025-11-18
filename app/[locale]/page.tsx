@@ -2,6 +2,13 @@ import { Header } from '@/components/cv/Header';
 import { Intro } from '@/components/cv/Intro';
 import { Achievements } from '@/components/cv/Achievements';
 import { TechStack } from '@/components/cv/TechStack';
+import { Experience } from '@/components/cv/Experience';
+import { Projects } from '@/components/cv/Projects';
+import { Education } from '@/components/cv/Education';
+import { SoftSkills } from '@/components/cv/SoftSkills';
+import { Languages } from '@/components/cv/Languages';
+import { Interests } from '@/components/cv/Interests';
+import { Contact } from '@/components/cv/Contact';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 
 export default function Home() {
@@ -14,16 +21,23 @@ export default function Home() {
       <LanguageSwitcher />
 
       {/* Content */}
-      <div className="max-w-[21cm] mx-auto px-8 py-12 print:p-0 print:pt-12">
+      <div className="max-w-[21cm] mx-auto px-8 py-12 print:p-0 print:pt-12 space-y-6">
         <Header />
         <Intro />
         <Achievements />
+        <Experience />
+        <Projects />
         <TechStack />
+        <Education />
+        <SoftSkills />
 
-        {/* TODO: Add more sections */}
-        <div className="mt-8 text-center text-slate-500">
-          <p>More sections coming soon...</p>
+        {/* Contact and additional info in a two-column layout on larger screens */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Languages />
+          <Interests />
         </div>
+
+        <Contact />
       </div>
     </main>
   );
