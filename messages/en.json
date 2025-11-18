@@ -1,4 +1,14 @@
 {
+  "metadata": {
+    "title": "Thomas Richard | Rayvol - Fullstack Developer & DevOps",
+    "description": "Portfolio and resume of Thomas Richard, fullstack developer specialized in creating MVPs and robust business applications."
+  },
+  "common": {
+    "result": "Result",
+    "technologies": "Technologies",
+    "objective": "Objective",
+    "status": "Status"
+  },
   "header": {
     "name": "Thomas Richard | Rayvol",
     "title": "Fullstack Developer & DevOps"
@@ -18,10 +28,15 @@
   },
   "stack": {
     "title": "⚙️ Technical Stack",
+    "developmentLabel": "Development:",
     "development": "Node.js, Angular/React, .NET/C#, Express.js, TypeScript, SQL, MongoDB",
+    "automationLabel": "Automation & IaC:",
     "automation": "GitLab CI/CD, Docker, Portainer, Bash, Ansible",
+    "infrastructureLabel": "Infrastructure & Network:",
     "infrastructure": "Proxmox, OPNsense, VLANs, DNS (Bind9), VPN, Traefik, Firewalling, DMZ, Zero Trust",
+    "authLabel": "Authentication & SSO:",
     "auth": "Authentik",
+    "monitoringLabel": "Monitoring:",
     "monitoring": "Grafana, Prometheus, Graylog"
   },
   "education": {
