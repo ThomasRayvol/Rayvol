@@ -7,9 +7,9 @@ cd "$(dirname "$0")/.."
 INPUT="./sources/index.html"
 
 # Fichiers de sortie
-PDF_OUT="./outputs/CV.pdf"
-MD_OUT="./outputs/CV.md"
-DOCX_OUT="./outputs/CV.docx"
+PDF_OUT="./output/CV.pdf"
+MD_OUT="./output/CV.md"
+DOCX_OUT="./output/CV.docx"
 
 # Fichier CSS optionnel
 CSS_FILE="./sources/style.css"

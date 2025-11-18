@@ -1,0 +1,46 @@
+# Packages et installateurs
+*.deb
+*.rpm
+*.pkg
+*.dmg
+
+# Fichiers Windows
+*:Zone.Identifier
+Thumbs.db
+Desktop.ini
+
+# Fichiers macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Fichiers temporaires
+*.tmp
+*.temp
+*.log
+*.swp
+*.swo
+*~
+
+# Node modules (si utilisation future)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environnements
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Build artifacts (optionnel - à adapter selon besoins)
+# output/
+# *.pdf
+# *.docx
+# *.md
